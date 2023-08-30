@@ -28,7 +28,6 @@ import { AppComponent } from './app.component';
     ToastrModule.forRoot(toastrConfig),
     BrowserAnimationsModule,
     FontAwesomeModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
