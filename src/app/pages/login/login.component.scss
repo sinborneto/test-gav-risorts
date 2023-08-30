@@ -1,0 +1,62 @@
+@import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+
+.control-label {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-control {
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-radius: 20px;
+    background: white;
+    //background: linear-gradient(90deg, rgba(193,193,193,1) 0%, rgba(164,165,167,1) 55%);
+}
+
+.content-login {
+    height: 97vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(90,6,75,1) 48%, rgba(83,6,146,1) 76%);
+    text-align: center;
+}
+
+.form-login {
+    padding: 20px;
+    height: 250px;
+    width: 250px;
+    background: rgb(60,162,212);
+    background: linear-gradient(90deg, rgba(60,162,212,1) 0%, rgba(59,102,199,1) 55%);
+    border-radius: 8px;
+}
+
+.toggle-password {
+    position: relative;
+    bottom: 33px;
+    left: 35%;
+    background: transparent;
+    border: none;
+}
+
+.user-label {
+    padding-bottom: 10px;
+}
+
+.password-label {
+    padding: 10px;
+}
+
+.btn-login {
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background: azure;
+}

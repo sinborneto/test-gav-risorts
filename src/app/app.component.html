@@ -1,23 +1,20 @@
-<main>
-  
-</main>
-<body>
-  <div>
-    <form [formGroup]="formUser" (ngSubmit)="submit()">
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="username"  id="username" />
-        <div class="form-group grid">
-          <label class="g-col-4 control-label">Senha</label>
-          <!-- <input type="text" class="form-control" formControlName="password"  id="password" /> -->
-          <input type="password" class="form-control" formControlName="password" #passwordInput>
-          <button class="toggle-password" (click)="togglePasswordVisibility(passwordInput)">
-            <i [ngClass]="passwordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
-          </button>
-        </div>
+<router-outlet></router-outlet>
+<!-- <app-login></app-login> -->
+
+<!-- <div>
+  <form [formGroup]="formUser" (ngSubmit)="submit()">
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="username"  id="username" />
+      <div class="form-group grid">
+        <label class="g-col-4 control-label">Senha</label>
+        <input type="password" class="form-control" formControlName="password" #passwordInput>
+        <button class="toggle-password" (click)="togglePasswordVisibility(passwordInput)">
+          <i [ngClass]="passwordVisible ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+        </button>
       </div>
-      <button (click)="login()"> Entrar </button>
-    </form>
-  </div>
-</body>
+    </div>
+    <button (click)="login()"> Entrar </button>
+  </form>
+</div> -->
 
 
