@@ -1,0 +1,121 @@
+//error-toast
+::ng-deep .error-toast {
+  border-left: 8px solid #b01919 !important;
+  margin-top: 5px !important;
+
+  .toaster-icon {
+    &::after {
+      content: "\f057" !important;
+      font-family: "Font Awesome 5 Free" !important;
+      color: #b01919 !important;
+      font-size: 3em !important;
+      font-weight: 900;
+    }
+  }
+
+  .toaster-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  .toast-close-button {
+    color: #b01919 !important;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+}
+
+//info-toast
+
+::ng-deep .info-toast {
+  border-left: 8px solid #0275d8 !important;
+  margin-top: 5px !important;
+
+  .toaster-icon {
+    &::after {
+      content: "\f06a" !important;
+      font-family: "Font Awesome 5 Free" !important;
+      color: #0275d8 !important;
+      font-size: 3em !important;
+      font-weight: 900;
+      transform: rotate(180deg);
+    }
+  }
+
+  .toaster-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  .toast-close-button {
+    color: #0275d8 !important;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+}
+
+//success-toast
+::ng-deep .success-toast {
+  border-left: 8px solid #5cb85c !important;
+  margin-top: 5px !important;
+
+  .toaster-icon {
+    &::after {
+      content: "\f058" !important;
+      font-family: "Font Awesome 5 Free" !important;
+      color: #5cb85c !important;
+      font-size: 3em !important;
+      font-weight: 900;
+    }
+  }
+
+  .toaster-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  .toast-close-button {
+    color: #5cb85c !important;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+}
+
+//alert-toast
+::ng-deep .alert-toast {
+  border-left: 8px solid #ffcd4e !important;
+  margin-top: 5px !important;
+
+  .toaster-icon {
+    &::after {
+      content: "\f06a" !important;
+      font-family: "Font Awesome 5 Free" !important;
+      color: #ffcd4e !important;
+      font-size: 3em !important;
+      font-weight: 900;
+    }
+  }
+
+  .toaster-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  .toast-close-button {
+    color: #ffcd4e !important;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+}

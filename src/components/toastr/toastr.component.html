@@ -1,0 +1,17 @@
+<div class="d-flex align-items-center">
+  <div class="toaster-close">
+    <a *ngIf="options.closeButton" (click)="remove()" class="btn btn-sm toast-close-button"> &times; </a>
+  </div>
+  <div class="toaster-content">
+    <div class="toaster-icon"></div>
+    <div class="toaster-message" *ngIf="message!.length < 120; else tooLongError">
+      {{ message }}
+    </div>
+    <ng-template #tooLongError>
+      <div class="toaster-message">Houve um erro no sistema. <a>Clique aqui para saber mais.</a></div>
+    </ng-template>
+  </div>
+  <div *ngIf="options.progressBar">
+    <div class="toast-progress" [style.width]="width + '%'"></div>
+  </div>
+</div>
