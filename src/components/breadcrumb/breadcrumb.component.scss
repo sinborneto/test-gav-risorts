@@ -1,0 +1,49 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.nav-breadcrumb {
+  margin-bottom: 12px !important;
+  padding: 0;
+  font-size: 16px;
+  li.arrow-back {
+    margin-right: 9px;
+
+    a {
+      cursor: pointer;
+    }
+
+    svg > path {
+      padding: 0;
+      width: 22px;
+      height: 22px;
+      fill: #70b9d8;
+    }
+
+    svg > path:hover {
+      fill: #2196f3;
+    }
+  }
+
+  a {
+    color: #70b9d8 !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+  }
+
+  a:hover {
+    color: #2196f3 !important;
+  }
+
+  span {
+    color: #707a84;
+    font-weight: bold;
+    font-size: 16px !important;
+  }
+
+  .links {
+    padding-top: 0.1em;
+    span,
+    a {
+      padding-top: 0.1em;
+    }
+  }
+}

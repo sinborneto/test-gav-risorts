@@ -1,1 +1,44 @@
-<p>contatos works!</p>
+<div class="card">
+    <p-table #dt [value]="products" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" [tableStyle]="{'min-width': '75rem'}"
+        [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros" [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h2 class="m-0">Contatos</h2>
+            </div>
+            <div class="d-flex button-add">
+                <button pButton pRipple label="Novo" icon="pi pi-plus" class="mr-2" (click)="openNewContact()"></button>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Foto</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Data de Cadastro</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-contact>
+            <tr>
+                <td>{{contact.id}}</td>
+                <td>{{contact.nome}}</td>
+                <td><img [src]="contact.foto" [alt]="contact.name" width="100" class="shadow-4" /></td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.telefone}}</td>
+                <td>{{contact.dataCadastro | date : 'dd/MM/yyyy'}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editContact(contact)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteContact(contact)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                Total de {{products ? products.length : 0 }} contatos.
+            </div>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,7 @@
+<div
+  class="invalid-feedback d-block"
+  [ngClass]="className"
+  *ngIf="this.formControl?.invalid && this.formControl?.touched && this.formControl?.dirty"
+>
+  {{ message }}
+</div>

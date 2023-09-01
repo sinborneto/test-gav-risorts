@@ -10,7 +10,6 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const tokenInfoString = localStorage.getItem('tokenInfo');
-    console.log(tokenInfoString)
     if (tokenInfoString) {
     const tokenInfo = JSON.parse(tokenInfoString);
     const expirationTimestamp = new Date(tokenInfo.expirationDate).getTime(); // Convertendo a data para timestamp

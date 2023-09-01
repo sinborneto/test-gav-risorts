@@ -27,10 +27,10 @@ export class ContactService {
   }
 
   updateContact (dataContact: any) {
-    return this.http.put(`${environment.baseURL}/api/Contatos/UpdateContato`, {dataContact});
+    return this.http.put(`${environment.baseURL}/api/Contatos/UpdateContato`, dataContact);
   }
 
-  createContact(dataContact: any) {
-    return this.http.post(`${environment.baseURL}/api/Contatos/CreateContato`, {dataContact});
+  createContact(contato: any) {
+    return this.http.post(`${environment.baseURL}/api/Contatos/CreateContato`, contato);
   }
 }
