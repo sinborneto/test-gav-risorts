@@ -1,0 +1,124 @@
+ul,
+li {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+
+.modal-header .close {
+  font-size: 2rem;
+  margin: -1rem -1rem 0rem auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.title-icon-modal {
+  color: #818a91;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.description-icon-modal {
+  font-size: 16px;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+.modal-footer {
+  border-top: none !important;
+}
+
+.btn {
+  min-width: fit-content !important;
+}
+
+.custom-button {
+  margin-top: 15px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.custom-button-cancel {
+  margin-top: 15px;
+  background-color: rgb(117, 117, 166);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.btn-success {
+  --bs-btn-color: white;
+  --bs-btn-hover-color: white;
+}
+
+.installment-element {
+  position: relative;
+  border-right: 2px solid #e7e7e7;
+
+  .credit-icon {
+    font-size: 1.125rem;
+    position: absolute;
+    right: -9px;
+    bottom: 30%;
+    background-color: white;
+  }
+}
+
+.total-credit-element {
+  border-left: 2px solid #e7e7e7;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 100% !important;
+  }
+
+  .installment-element {
+    border-bottom: 2px solid #e7e7e7;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .credit-icon {
+      right: 50%;
+      bottom: -10px;
+    }
+  }
+
+  .total-credit-element {
+    border-top: 2px solid #e7e7e7;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .credit-element {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}

@@ -1,13 +1,30 @@
 <div class="card">
-    <p-table #dt [value]="products" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" [tableStyle]="{'min-width': '75rem'}"
-        [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
+    <p-table #dt [value]="contacts" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" [tableStyle]="{'min-width': '75rem'}"
+        [(selection)]="selectedContacts" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="flex align-items-center justify-content-between">
-                <h2 class="m-0">Contatos</h2>
+                <h2 class="mb-3">Contatos</h2>
             </div>
-            <div class="d-flex button-add">
-                <button pButton pRipple label="Novo" icon="pi pi-plus" class="mr-2" (click)="openNewContact()"></button>
+            <div class="content-util">
+                <div class="button-add">
+                    <button pButton pRipple label="Novo" icon="pi pi-plus" class="mr-2" (click)="openNewContact()"></button>
+                </div>
+                <div class="search-content">
+                    <div class="input-group rounded">
+                        <input 
+                            type="search"
+                            class="form-control rounded"
+                            placeholder="Buscar Id"
+                            aria-label="Search"
+                            aria-describedby="search-addon"
+                            (keyup)="searchId($event)"
+                        />
+                        <span class="input-group-text border-0" id="search-addon">
+                          <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
         </ng-template>
         <ng-template pTemplate="header">
@@ -27,7 +44,7 @@
                 <td>{{contact.nome}}</td>
                 <td><img [src]="contact.foto" [alt]="contact.name" width="100" class="shadow-4" /></td>
                 <td>{{contact.email}}</td>
-                <td>{{contact.telefone}}</td>
+                <td>{{contact.telefone | mask : '(00) 0 0000-0000'}}</td>
                 <td>{{contact.dataCadastro | date : 'dd/MM/yyyy'}}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editContact(contact)"></button>
@@ -37,7 +54,7 @@
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="flex align-items-center justify-content-between">
-                Total de {{products ? products.length : 0 }} contatos.
+                Total de {{contacts ? contacts.length : 0 }} contatos.
             </div>
         </ng-template>
     </p-table>

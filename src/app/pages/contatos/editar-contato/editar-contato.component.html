@@ -1,1 +1,63 @@
-<p>editar-contato works!</p>
+<div class="wrapper px-0">
+    <div class="container">
+      <div class="d-flex flex-column">
+        <app-breadcrumb
+          [isModal]="true"
+          (closeModal)="dialogRef.close()"
+          [items]="[
+            {
+              text: 'Contatos'
+            },
+            { text: 'Editar Contato' }
+          ]"
+        ></app-breadcrumb>
+        <div class="card">
+          <div class="card-body px-5 py-4 card-body-div">
+            <div class="historic-container">
+              <h3 class="text-gray-300 mb-4 title-historic">
+                Editar contato
+              </h3>
+            </div>
+            <div class="timeline-container mt-4 card p-2 py-md-4 ps-md-2 pe-md-4">
+              <div class="card-body">
+                <form [formGroup]="formContact">
+                    <div class="d-flex">
+                        <div class="form-group col-md-6">
+                            <label class="text-blue-300 subtitle-sm" for="">Nome</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                formControlName="nome"
+                            />
+                            <validation-message></validation-message>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="text-blue-300 subtitle-sm" for="">Email</label>
+                            <input type="text" formControlName="email" class="form-control" />
+                            <validation-message></validation-message>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group col-md-6">
+                            <label class="text-blue-300 subtitle-sm" for="">Telefone</label>
+                            <input mask="(00) 0 0000-0000" type="text" formControlName="telefone" class="form-control" />
+                            <validation-message></validation-message>
+                        </div>
+                    </div>
+                    <div class="image-send">
+                        <button type="button" class="custom-button" (click)="chooseFile()">Selecionar Imagem</button>
+                        <input #fileInput type="file" formControlName="foto" name="arquivos" class="hidden-input"  accept="image/png, image/jpeg" (change)="onFileChange($event)"  multiple /> 
+                        <img *ngIf="fotoUrl" class="foto-contact" [src]="fotoUrl" alt="Imagem Enviada">
+                    </div>
+                </form>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+              <button class="custom-button-cancel" (click)="dialogRef.close()">Voltar</button>
+              <button class="custom-button ms-3" (click)="editContact()">Atualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

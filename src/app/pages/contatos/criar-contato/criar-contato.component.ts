@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { finalize } from 'rxjs';
 import { displayNameValidator, emailValidator, numberValidator, phoneValidator } from 'src/components/validators/validators';
 import { ContactService } from 'src/services/test.service';
 
@@ -40,21 +41,7 @@ export class CriarContatoComponent implements OnInit {
     private contactService: ContactService
   ) {}
 
-  ngOnInit() {
-    console.log(this.formNewContact);
-    let contato = {
-      dataCadastro: "2023-08-30T03:00:00",
-      email:"yago.gripp@geradornv.com.br",
-      foto:"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAA..........WBnSonQU/9k=",
-      id:1,
-      nome : "Yago Brum Gripp",
-      telefone : "(65) 96939-7724"
-    }
-    this.contactService.createContact(contato).subscribe()
-    // this.contactService.getContactsById('23').subscribe()
-    this.contactService.updateContact(contato).subscribe()
-    // this.contactService.deleteContact('24').subscribe()
-  }
+  ngOnInit() {}
 
   postNewContact() {
     const {
@@ -74,10 +61,8 @@ export class CriarContatoComponent implements OnInit {
       foto: base64Image?.value,
       dataCadastro: dataCadastro?.value
     };
-
-    console.log(this.formNewContact, this.data);
-
-    this.contactService.createContact(this.data).subscribe()
+    
+    this.contactService.createContact(this.data).pipe(finalize(() => this.dialogRef.close())).subscribe()
   }
 
   dataAtual() {
@@ -94,7 +79,6 @@ export class CriarContatoComponent implements OnInit {
     const segundos = dataAtual.getSeconds();
     let ajusteSegundos = segundos.toString().length === 1 ? `0${segundos.toString()}` : segundos
     const dataFormatada = `${ano}-${ajusteMes}-${ajusteDia}T${ajusteHora}:${ajusteMinutos}:${ajusteSegundos}`
-    console.log(dataFormatada);
     return dataFormatada
   }
 

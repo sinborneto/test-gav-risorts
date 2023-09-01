@@ -3,7 +3,19 @@ tr {
 }
 
 .button-add {
-    text-align: end;
+    grid-column: auto/span 8;
+}
+
+.search-content{
+    grid-column: auto/span 4;
+    align-self: center;
+}
+
+.content-util {
+    display: grid;
+    grid-template-rows: repeat(var(--bs-rows, 1),1fr);
+    grid-template-columns: repeat(var(--bs-columns, 12),1fr);
+    gap: var(--bs-gap, 1.5rem);
 }
 
 .p-button-success {

@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptor } from 'src/components/interceptor/auth-interceptor';
+import { ModalComponent } from 'src/components/modal/modal.component';
 import { ToastrComponent, toastrConfig } from 'src/components/toastr/toastr.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { LoginModule } from './pages/login/login.module';
   declarations: [
     AppComponent,
     ToastrComponent,
+    ModalComponent
   ],
   imports: [
     NgbModule,

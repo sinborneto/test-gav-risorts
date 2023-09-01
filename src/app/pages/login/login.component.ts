@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
   login() {
     let user = this.formUser.getRawValue();
     let errorLogin = false;
-    console.log(this.formUser.status)
     if(user.username && user.password){
       this.contactService.login(user.username, user.password).subscribe((res:any) => {
         res === null ? errorLogin = true : errorLogin = false;

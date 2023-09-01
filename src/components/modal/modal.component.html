@@ -1,0 +1,107 @@
+<div class="modal-content" [ngStyle]="{ width: modalWidth }">
+  <div class="modal-header d-flex align-items-center">
+    <div class="modal-icon me-2">
+      <img [src]="type === 'alert' ? 'assets/icons/modal-alert.svg' : 'assets/icons/modal-info.svg'" alt="" />
+    </div>
+    <h5 ngbAutofocus class="modal-title pull-left text-gray-600 mb-0">
+      {{ title }}
+    </h5>
+    <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- List -->
+    <ul *ngIf="list.length && !iconModal" class="mb-2">
+      <li
+        [style]="customTitleTextArea"
+        [ngClass]="{
+          'medium-txt': i === 0 && firstLineAsTitle,
+          'mb-2': i === 0 && firstLineAsTitle,
+          subtitle: i === 0 && firstLineAsTitle
+        }"
+        *ngFor="let item of list; let i = index"
+        class="text-gray-300 subtitle-sm"
+      >
+        {{ item }}
+      </li>
+    </ul>
+    <!-- List Icon-->
+    <ul *ngIf="listArray.length && iconModal" class="mb-2">
+      <li
+        [style]="customTitleTextArea"
+        [ngClass]="{
+          'medium-txt': i === 0 && firstLineAsTitle,
+          'mb-2': i === 0 && firstLineAsTitle,
+          subtitle: i === 0 && firstLineAsTitle
+        }"
+        *ngFor="let item of listArray; let i = index"
+        class="text-gray-300 subtitle-sm"
+      >
+        <div class="d-grid">
+          <span *ngIf="item.title" class="title-icon-modal">{{ item.title }}</span>
+          <span class="mt-2 description-icon-modal">{{ item.description }}</span>
+        </div>
+      </li>
+    </ul>
+    <!-- Textarea -->
+    <form [formGroup]="form" *ngIf="textInput">
+      <div class="form-group">
+        <label for="textArea">{{ labelTextArea }}</label>
+        <input name="textArea" id="textArea" cols="5" rows="" formControlName="textArea" class="form-control" />
+      </div>
+    </form>
+    <form [formGroup]="form" *ngIf="textArea">
+      <div class="form-group">
+        <label for="textArea">{{ labelTextArea }}</label>
+        <textarea
+          name="textArea"
+          id="textArea"
+          cols="5"
+          formControlName="textArea"
+          [style]="customTextArea"
+          [class]="'form-control'"
+        ></textarea>
+      </div>
+    </form>
+    <!-- Card de payWithCredit -->
+    <ng-container *ngIf="payWithCredit">
+      <h6 class="subtitle mb-3">{{ payWithCredit.title }}</h6>
+      <div class="card flex-md-row">
+        <div class="px-4 py-2 p-md-0 my-md-2 px-md-4 installment-element">
+          <h6 class="subtitle-sm text-gray-300">
+            {{ payWithCredit.installment?.label }}
+          </h6>
+          <h4 class="bold-txt text-gray-300 mb-0">
+            {{ payWithCredit.installment?.value | currency : 'BRL' }}
+          </h4>
+          <i class="fas fa-minus-circle credit-icon text-gray-300"></i>
+        </div>
+        <div class="px-4 py-2 credit-element">
+          <h6 class="subtitle-sm text-gray-300">
+            {{ payWithCredit.credit?.label }}
+          </h6>
+          <h4 class="bold-txt text-green-200 mb-0">
+            {{ payWithCredit.credit?.value | currency : 'BRL' }}
+          </h4>
+        </div>
+        <div class="px-4 py-2 total-credit-element w-100">
+          <h6 class="subtitle-sm text-gray-300">
+            {{ payWithCredit.total?.label }}
+          </h6>
+          <h4 class="bold-txt text-gray-300 mb-0">
+            {{ payWithCredit.installment?.value - payWithCredit.credit?.value | currency : 'BRL' }}
+          </h4>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn custom-button-cancel" (click)="onCancel()">
+      {{ cancelButtonText }}
+    </button>
+    <button type="button" *ngIf="confirmButtonText !== ''" class="btn custom-button" (click)="onConfirm()">
+      {{ confirmButtonText }}
+    </button>
+  </div>
+</div>
